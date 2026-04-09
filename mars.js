@@ -54,6 +54,20 @@ class MarsGrid {
                 else if (direction === 'S') nextY--;
                 else if (direction === 'W') nextX--;
 
+                if (nextX < 0 || nextX > this.maxX || nextY < 0 || nextY > this.maxY) {
+                    // last valid position and orientation before robot is lost and where the scent will be left.
+                    const lostRobotScent = `${x} ${y} ${direction}`;
+
+                    if (this.scents.has(lostRobotScent)) {
+                        // if there is a scent here, a previous robot was lost here. Ignore the instruction to move forward. 
+                        continue;
+                    } else {
+                        // if a robot is lost, mark this as a scent and return the position and orientation with LOST.
+                        this.scents.add(lostRobotScent);
+                        return `${x} ${y} ${direction} LOST`;
+                    }
+                }
+
                 // I need to add logic to check on boundaries. 
                 x = nextX;
                 y = nextY;
