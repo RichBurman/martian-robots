@@ -36,3 +36,10 @@ I followed a test-driven mindset, verifying the logic at every stage of develope
 Before the main tests, I implemented manual tests, to verify that the robot could move and rotate correctly, without the overhead of input parser. 
 
 Why: I did this to ensure that the coordinate math was correct. If a robot is at (1,1) East and moves 'Forward' 3 times, it should land at (4,1). Catching these errors early, prevented any issues further down the line. 
+
+```javascript
+const testGrid = new MarsGrid(5, 3);
+console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
+
+![Description](images/testGrid.png)
+
