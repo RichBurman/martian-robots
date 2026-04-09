@@ -27,3 +27,12 @@ This method handles the execution of instructions for a single robot.
 - Mapping: It translates directions (N, S, E, W) into Cartesian movements. Specifically, North corresponds to (x, y +1) as per the requirements.
 - Future-Proofing: The movement logic is structured using if/else if chain. This allows the system to be easily extended with new commands, without risking the existing 'Forward' or 'Rotate' logic.
  
+## Testing and Vertification
+
+I followed a test-driven mindset, verifying the logic at every stage of developement. 
+
+### Check 1: Manual Movement Verification
+
+Before the main tests, I implemented manual tests, to verify that the robot could move and rotate correctly, without the overhead of input parser. 
+
+Why: I did this to ensure that the coordinate math was correct. If a robot is at (1,1) East and moves 'Forward' 3 times, it should land at (4,1). Catching these errors early, prevented any issues further down the line. 
