@@ -59,6 +59,7 @@ class MarsGrid {
                 else if (direction === 'E') nextX++;
                 else if (direction === 'S') nextY--;
                 else if (direction === 'W') nextX--;
+                // More command types can be added here if needed in the future. 
 
                 if (nextX < 0 || nextX > this.maxX || nextY < 0 || nextY > this.maxY) {
                     // last valid position and orientation before robot is lost and where the scent will be left.
@@ -78,6 +79,8 @@ class MarsGrid {
                 x = nextX;
                 y = nextY;
             }
+
+
         }
         // return the robot final position and orientation. Need to check if the robot is lost and add scent if it is. 
         return `${x} ${y} ${direction}`;
