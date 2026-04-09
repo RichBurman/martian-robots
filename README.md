@@ -40,6 +40,7 @@ Why: I did this to ensure that the coordinate math was correct. If a robot is at
 ```javascript
 const testGrid = new MarsGrid(5, 3);
 console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
+```
 
-![Description](images/testGrid.png)
+![Test Grid Check](./images/testGrid.png)
 
