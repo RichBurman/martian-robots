@@ -77,6 +77,8 @@ node mars.js
 ```
 - The terminal will display the results followed by the verification tests. 
 
+<img src="./images/nodeMarsJs.png" alt="Results after running node mars.js" width="400">
+
 ## Comments
 
 I use comments while coding which can be seen and viewed in the commit history to show my thinking and thought process while undertaking this project. 
