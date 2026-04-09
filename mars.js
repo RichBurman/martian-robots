@@ -30,6 +30,9 @@ class MarsGrid {
 
     //basic movement logic for my robot. Also will need to include logic to check boundaries and check if safe to move forward due to scent.
     moveRobot(startX, startY, orientation, instructions) {
+        if (instructions.length >= 100) {
+            return "Error: Instruction string too long (max 99 characters).";
+        }
         if (startX < 0 || startX > this.maxX || startY < 0 || startY > this.maxY) {
             return `${startX} ${startY} ${orientation} LOST (OFF-GRID START)`;
         }
