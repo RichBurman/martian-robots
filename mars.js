@@ -27,4 +27,41 @@ class MarsGrid {
         this.leftMap = { 'N': 'W', 'W': 'S', 'S': 'E', 'E': 'N' };
         this.rightMap = { 'N': 'E', 'E': 'S', 'S': 'W', 'W': 'N' };
     }
+
+    //basic movement logic for my robot. Also will need to include logic to check boundaries and check if safe to move forward due to scent.
+    moveRobot(startX, startY. orientation, instructions) {
+        let x = startX;
+        let y = startY;
+        let direction = orientation;
+
+        for (let instruction of instructions) {
+            if (instruction === 'L') {
+                direction = this.leftMap[direction];
+            } else if (instruction === 'R') {
+                direction = this.rightMap[direction];
+            } else if (instruction === 'F') {
+                let nextX = x;
+                let nextY = y;
+
+                // x is horizontal and y is vertical.
+                // Robot facing north, moving forward will increase y. 
+                // Robot facing east, moving forward will increase x.
+                // Robot facing south, moving forward will decrease y.
+                // Robot facing west, moving forward will decrease x.
+
+                if (direction === 'N') nextY++;
+                else if (direction === 'E') nextX++;
+                else if (direction === 'S') nextY--;
+                else if (direction === 'W') nextX--;
+
+                // I need to add logic to check on boundaries. 
+                x = nextX;
+                y = nextY;
+            }
+        }
+        // return the robot final position and orientation. Need to check if the robot is lost and add scent if it is. 
+        return `${x} ${y} ${direction}`;
+    }
 }
+
+
