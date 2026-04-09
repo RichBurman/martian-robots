@@ -29,7 +29,7 @@ class MarsGrid {
     }
 
     //basic movement logic for my robot. Also will need to include logic to check boundaries and check if safe to move forward due to scent.
-    moveRobot(startX, startY. orientation, instructions) {
+    moveRobot(startX, startY, orientation, instructions) {
         let x = startX;
         let y = startY;
         let direction = orientation;
@@ -63,5 +63,12 @@ class MarsGrid {
         return `${x} ${y} ${direction}`;
     }
 }
+
+// Quick test to see if the moveRobot function is working. Run node mars.js to see the output.
+const testGrid = new MarsGrid(5, 3);
+console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
+// should be a minus as the robot will move off the grid and be lost.
+console.log(testGrid.moveRobot(1, 1, 'E', 'RFF'));
+
 
 
