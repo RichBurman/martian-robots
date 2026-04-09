@@ -82,13 +82,40 @@ class MarsGrid {
 // First line to set up MarsGrid, then I need to loop through the rest of lines in pairs. One line, robot starting pos, next line - robot instructions. 
 // I need to make sure to use the same instance, so robots can leave scents for each other.
 
+function runMartianRobots(input) {
+    // Trim the input and split into lines.
+    const lines = input.trim().split('\n').map(line => line.trim());
+    if (lines.length === 0) return '';
 
+    // First line - Grid setup.
+    const [maxX, maxY] = lines[0].split(' ').map(Number);
+    const missionGrid = new MarsGrid(maxX, maxY);
+
+    const results = [];
+
+    // Robots in pairs - one line for starting position and orientation, next line for instructions.
+    for (let i = 1; i < lines.length; i += 2) {
+        const positionParts = lines[i].split(' ');
+        if (positionParts.length < 3) continue; // skip if not enough parts for position and orientation
+
+        const startX = parseInt(positionParts[0]);
+        const startY = parseInt(positionParts[1]);
+        const orientation = positionParts[2];
+        const instructions = lines[i + 1];
+
+        const finalStatus = missionGrid.moveRobot(startX, startY, orientation, instructions);
+        results.push(finalStatus);
+    }
+    
+    return results.join('\n');
+}
 
 // Quick test to see if the moveRobot function is working. Run node mars.js to see the output.
 const testGrid = new MarsGrid(5, 3);
 console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
 // should be a minus as the robot will move off the grid and be lost.
 console.log(testGrid.moveRobot(1, 1, 'E', 'RFF'));
+
 
 
 
