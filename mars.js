@@ -30,6 +30,9 @@ class MarsGrid {
 
     //basic movement logic for my robot. Also will need to include logic to check boundaries and check if safe to move forward due to scent.
     moveRobot(startX, startY, orientation, instructions) {
+        if (startX < 0 || startX > this.maxX || startY < 0 || startY > this.maxY) {
+            return `${startX} ${startY} ${orientation} LOST (OFF-GRID START)`;
+        }
         let x = startX;
         let y = startY;
         let direction = orientation;
@@ -144,3 +147,11 @@ if (finalOutput === expectedOutput) {
     console.log('Expected Output:');
     console.log(expectedOutput);
 }
+
+const offGridData = `5 3
+10 10 E
+FFFF`;
+
+console.log('Testing Bad Start Position:');
+console.log(runMartianRobots(offGridData)); 
+// Expected: "Robot is LOST. Starting position is off the grid."
