@@ -111,11 +111,36 @@ function runMartianRobots(input) {
 }
 
 // Quick test to see if the moveRobot function is working. Run node mars.js to see the output.
-const testGrid = new MarsGrid(5, 3);
-console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
-// should be a minus as the robot will move off the grid and be lost.
-console.log(testGrid.moveRobot(1, 1, 'E', 'RFF'));
+// const testGrid = new MarsGrid(5, 3);
+// console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
+// // should be a minus as the robot will move off the grid and be lost.
+// console.log(testGrid.moveRobot(1, 1, 'E', 'RFF'));
+
+
+// Sample Input from Developer Programming Problem
+const inputData = `5 3
+1 1 E
+RFRFRFRF
+3 2 N
+FRRFLLFFRRFLL
+0 3 W
+LLFFFLFLFL`;
 
 
 
+console.log('Mission Results:')
+const finalOutput = runMartianRobots(inputData);
+console.log(finalOutput);
+console.log('---');
 
+const expectedOutput = `1 1 E
+3 3 N LOST
+2 3 S`;
+
+if (finalOutput === expectedOutput) {
+    console.log('The output matches the expected output. Test passed!');
+} else {
+    console.log('The output does NOT match the expected output. Test failed.');
+    console.log('Expected Output:');
+    console.log(expectedOutput);
+}
