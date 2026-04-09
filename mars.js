@@ -78,6 +78,12 @@ class MarsGrid {
     }
 }
 
+// I need a way to read the input and process multiline input string. 
+// First line to set up MarsGrid, then I need to loop through the rest of lines in pairs. One line, robot starting pos, next line - robot instructions. 
+// I need to make sure to use the same instance, so robots can leave scents for each other.
+
+
+
 // Quick test to see if the moveRobot function is working. Run node mars.js to see the output.
 const testGrid = new MarsGrid(5, 3);
 console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
