@@ -42,7 +42,7 @@ const testGrid = new MarsGrid(5, 3);
 console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
 ```
 
-![Test Grid Check](./images/testGrid.png)
+<img src="./images/testGrid.png" alt="Test Grid Check" width="400">
 
 ### Check 2: Sample Input and Scent Logic
 I utilised the provided sample data to verify the Scent requirement. 
@@ -54,8 +54,10 @@ Why: This test proves that the grid correctly stores a scent when Robot 2 is los
 const finalOutput = runMartianRobots(inputData);
 // Expected: 1 1 E, 3 3 N LOST, 2 3 S
 ```
-![Test 1](./images/test1.png)
-![Test 2](./images/test2.png)
+
+<img src="./images/test1.png" alt="Test 1" width="400">
+<img src="./images/test2.png" alt="Test 2" width="400">
+
 
 ### Check 3: Boundaries Checks and Constraint Checks
 
@@ -63,14 +65,14 @@ I verified that the system correctly handles edge cases, such as robots starting
 
 Why: Code must be robust against 'bad', 'incorrect' input. These tests ensure the program provide clear feedback rather than failing silently. 
 
-![Test 3](./images/test3.png)
+<img src="./images/test3.png" alt="Test 3" width="400">
 
 
 ## How to run
 
 - Ensure you have Node.js installed
 - Run the script from your terminal: 
-``` Bash
+``` bash
 node mars.js
 ```
 - The terminal will display the results followed by the verification tests. 
