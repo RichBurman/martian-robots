@@ -126,8 +126,20 @@ function runMartianRobots(input) {
 // console.log(testGrid.moveRobot(1, 1, 'E', 'RFF'));
 
 
-// Sample Input from Developer Programming Problem
-const inputData = `5 3
+// Quick test to see if the moveRobot function is working. Run node mars.js to see the output.
+// const testGrid = new MarsGrid(5, 3);
+// console.log(testGrid.moveRobot(1, 1, 'E', 'FFF'));
+// // should be a minus as the robot will move off the grid and be lost.
+// console.log(testGrid.moveRobot(1, 1, 'E', 'RFF'));
+
+// Unit Tests to validate the Martian Robots problem.
+// Test 1 - Sample Input from the problem statement to see if we get the expected output.
+// Test 2 - Off-Grid Robot Start Position
+// Test 3 Instruction String more than 99 characters
+function runTests() {
+  // Test 1 - Sample Input from the problem statement to see if we get the expected output.
+  // Sample Input from Developer Programming Problem
+  const inputData = `5 3
 1 1 E
 RFRFRFRF
 3 2 N
@@ -135,29 +147,62 @@ FRRFLLFFRRFLL
 0 3 W
 LLFFFLFLFL`;
 
-
-
-console.log('Mission Results:')
-const finalOutput = runMartianRobots(inputData);
-console.log(finalOutput);
-console.log('---');
-
-const expectedOutput = `1 1 E
+  const expectedOutput = `1 1 E
 3 3 N LOST
 2 3 S`;
 
-if (finalOutput === expectedOutput) {
-    console.log('The output matches the expected output. Test passed!');
-} else {
-    console.log('The output does NOT match the expected output. Test failed.');
-    console.log('Expected Output:');
-    console.log(expectedOutput);
-}
+  console.log("Test 1 - Sample Input:");
+  const finalOutput = runMartianRobots(inputData);
 
-const offGridData = `5 3
+  if (finalOutput === expectedOutput) {
+    console.log("The output matches the expected output. Test passed!");
+  } else {
+    console.log("The output does NOT match the expected output. Test failed.");
+    console.log("Expected Output:");
+    console.log(expectedOutput);
+  }
+
+  console.log("---");
+
+  // Test 2 - Off-Grid Robot Start Position
+
+  console.log("Test 2 - Off-Grid Robot Start Position:");
+  const offGridData = `5 3
 10 10 E
 FFFF`;
 
-console.log('Testing Bad Start Position:');
-console.log(runMartianRobots(offGridData)); 
-// Expected: "Robot is LOST. Starting position is off the grid."
+  const offGridResult = runMartianRobots(offGridData);
+
+  if (offGridResult.includes("LOST (OFF-GRID START)")) {
+    console.log("Off-grid start position correctly identified. Test passed!");
+  } else {
+    console.log(
+      "Off-grid start position not correctly identified. Test failed.",
+    );
+  }
+
+  console.log("---");
+
+  // Test 3 - Instruction String more than 99 characters
+
+    console.log("Test 3 - Instruction String more than 99 characters:");
+    const longInstructions = "F".repeat(100); // 100 characters long
+    const lengthTestData = `5 3
+1 1 E
+${longInstructions}`;
+
+    const lengthResult = runMartianRobots(lengthTestData);
+
+    if (lengthResult.includes("Error: Instruction string too long")) {
+      console.log("Instruction length correctly identified. Test passed!");
+    } else {
+      console.log(
+        "Instruction length not correctly identified. Test failed.",
+      );
+    }
+
+    console.log("---");
+    console.log("All tests completed.");
+}
+
+runTests();
