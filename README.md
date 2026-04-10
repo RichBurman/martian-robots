@@ -11,7 +11,7 @@ ideal language to use that most engineers can understand and verify quickly.
 ## System Architecture
 
 ### The MarsGrid Class
-I designed a MarsGrid class to act as the 'Source of Truth' for the robot mission. 
+I designed a MarsGrid class to act as the Source of Truth for the robot mission. 
 
 - It stores the grid boundaries of Mars
 - The scents left by lost robots
@@ -36,6 +36,8 @@ I followed a test-driven mindset, verifying the logic at every stage of developm
 Before the main tests, I implemented manual tests, to verify that the robot could move and rotate correctly, without the overhead of input parser. 
 
 Why: I did this to ensure that the coordinate math was correct. If a robot is at (1,1) East and moves 'Forward' 3 times, it should land at (4,1). Catching these errors early, prevented any issues further down the line. 
+
+It is important to note, I have now removed this test from the code, once I was confident the robot movement was operating correctly. 
 
 ```javascript
 const testGrid = new MarsGrid(5, 3);
@@ -83,4 +85,4 @@ node mars.js
 
 I use comments while coding which can be seen and viewed in the commit history to show my thinking and thought process while undertaking this project. 
 
-I have now removed the comments from the code to ensure it is production ready. 
+I have now removed the thought and thinking comments from the code, (but left in some placeholder comments for code e.g. to show where more command types can be added) to ensure it is production ready. 
