@@ -111,7 +111,6 @@ LLFFFLFLFL`;
 2 3 S`;
 
   console.log("Test 1 - Sample Input:");
-  //   const finalOutput = runMartianRobots(inputData);
 
   if (finalOutput === expectedOutput) {
     console.log("The output matches the expected output. Test passed!");
